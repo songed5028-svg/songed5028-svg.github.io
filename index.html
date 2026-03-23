@@ -5,173 +5,183 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오랜만에 시작한 마인크래프트</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: "Noto Sans KR", sans-serif;
-        margin: 0;
-        background: #4e342e; /* 조금 더 깊이감 있는 흙색 */
-        line-height: 1.8;
-        color: #333;
-    }
 
-    header {
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('start.jpg');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 80px 20px;
-        text-align: center;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    }
+body{
+font-family:"Noto Sans KR", sans-serif;
+margin:0;
+background:linear-gradient(to bottom,#2e7d32,#a5d6a7);
+line-height:1.9;
+color:#333;
+overflow-x:hidden;
+}
 
-    .container {
-        max-width: 800px;
-        margin: -30px auto 40px; /* 헤더와 살짝 겹치게 */
-        background: white;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        border-radius: 15px;
-        position: relative;
-    }
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-thumb{background:#2e7d32;border-radius:10px;}
 
-    h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    p { margin: 20px 0; }
+header{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('start.jpg');
+background-size:cover;
+color:white;
+padding:90px 20px;
+text-align:center;
+}
 
-    .scene {
-        margin-top: 60px;
-        border-top: 3px double #ddd;
-        padding-top: 40px;
-    }
+header h1{
+font-family:'Press Start 2P';
+font-size:26px;
+}
 
-    .dialog {
-        background: #f8f9fa;
-        padding: 20px;
-        border-left: 5px solid #2d6a4f;
-        border-radius: 8px;
-        margin: 25px 0;
-        font-style: italic;
-        color: #555;
-    }
+.container{
+max-width:800px;
+margin:-40px auto 40px;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
 
-    .image {
-        margin: 40px 0;
-        text-align: center;
-    }
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+.fade.show{
+opacity:1;
+transform:none;
+}
 
-    .image img {
-        width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease;
-    }
+@keyframes shake{
+0%{transform:translate(0)}
+25%{transform:translate(-5px,5px)}
+50%{transform:translate(5px,-5px)}
+75%{transform:translate(-5px,5px)}
+100%{transform:translate(0)}
+}
+.shake{
+animation:shake 0.4s;
+}
 
-    .image img:hover {
-        transform: scale(1.02);
-    }
+.big{
+display:block;
+font-size:26px;
+text-align:center;
+margin:40px 0;
+color:#2e7d32;
+font-weight:bold;
+transition:0.3s;
+}
+.big:hover{transform:scale(1.05);}
 
-    .caption {
-        font-size: 14px;
-        color: #888;
-        margin-top: 10px;
-        font-weight: bold;
-    }
+.highlight{
+display:block;
+font-size:20px;
+margin:30px 0;
+font-weight:bold;
+color:#1b5e20;
+}
 
-    .highlight {
-        color: #2d6a4f;
-        font-weight: bold;
-    }
+.image{
+margin:40px 0;
+text-align:center;
+}
+.image img{
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+transition:0.4s;
+}
+.image img:hover{
+transform:scale(1.05);
+}
 
-    footer {
-        text-align: center;
-        padding: 40px;
-        color: #d7ccc8;
-        font-size: 0.9rem;
-    }
+.dialog{
+background:#f1f8e9;
+padding:20px;
+border-left:6px solid #2e7d32;
+margin:25px 0;
+}
+
+.scene{
+margin-top:70px;
+padding-top:40px;
+border-top:3px double #ddd;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#2e7d32;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>오랜만에 시작한 마인크래프트</h1>
-    <p>친구와 함께 시작한 네모난 세상의 모험</p>
+<h1>오랜만에 시작한 마인크래프트</h1>
+<p>친구와 함께 시작한 네모난 세상의 모험</p>
 </header>
 
 <div class="container">
 
-    <p>오랜만에 친구와 함께 시작한 마인크래프트.</p>
+<div class="fade">
+<p>오랜만에 친구와 함께 시작한 마인크래프트.</p>
+</div>
 
-    <div class="image">
-        <img src="start.jpg" alt="마인크래프트 영화 포스터">
-        <div class="caption">▲ 우리가 꿈꾸던(?) 실사판 같은 모험의 시작</div>
-    </div>
+<div class="image fade">
+<img src="start.jpg">
+</div>
 
-    <p>
-        우리가 자라는 동안 수많은 업데이트가 이루어졌지만, 이 네모난 블록으로 이루어진 세상은 여전히 설렘을 준다. 
-        우리의 목표는 다른 차원에 사는 거대한 용을 물리치고, 우리만의 마을을 만드는 것.
-    </p>
+<div class="fade">
+<p>
+우리가 자라는 동안 수많은 업데이트가 이루어졌지만, 이 네모난 세상은 여전히 설렘을 준다.
+</p>
+</div>
 
-    <p>
-        이 게임 속 세계는 실제 사람의 크기 기준으로 환산하면 <span class="highlight">지구보다 몇 배는 넓다</span>고 한다.
-        우리는 설레는 마음으로 지상을 달리기 시작했다.
-    </p>
+<span class="highlight fade">지구보다 몇 배는 넓은 세계</span>
 
-    <div class="scene">
-        <p><strong>첫 번째 탐험의 비극적인 밤.</strong></p>
+<div class="scene fade">
+<p class="big">첫 번째 탐험의 마지막 밤</p>
 
-        <p>어느 정도 자리를 잡고 이제 잠을 자서 밤을 넘길 차례였다.</p>
+<div class="dialog">
+“자는 동안 나 잠깐 화장실.”<br>
+“그럼 난 먹을 것 좀 가져올게.”
+</div>
 
-        <div class="dialog">
-            “자는 동안 나 잠깐 화장실.”<br>
-            “그럼 난 먹을 것 좀 가져올게.”
-        </div>
+<div class="image fade" id="boom">
+<img src="die.jpg">
+</div>
 
-        <p>잠시 자리를 비운 사이, 스피커 너머로 들려온 불길한 <strong>"치이이익-"</strong> 소리.</p>
-
-        <div class="image">
-            <img src="die.jpg" alt="게임 오버 화면">
-            <div class="caption">▲ 화장실 다녀오니 마주한 차가운 현실</div>
-        </div>
-
-        <p>
-            캐릭터가 죽은 뒤 멍하니 멈춰있는 화면,<br>
-            부서진 침대, 그리고 공중에 흩어지는 연기...
-        </p>
-
-        <p>침묵 속에 <span class="highlight">마인크래프트의 대표적인 몬스터 크리퍼</span>가 다녀간 흔적만이 우리를 반겨주었다.</p>
-    </div>
-
-    <div class="scene">
-        <p><strong>실패는 성공의 어머니, 다시 바다로!</strong></p>
-
-        <p>허탈함을 뒤로하고 우리는 다시 탐험을 시작했다. 이번엔 발길이 닿는 대로 바다로 향했다.</p>
-
-        <div class="image">
-            <img src="sea.jpg" alt="마인크래프트 바다 속 풍경">
-            <div class="caption">▲ 언젠가 우리가 정복할 푸른 바다의 세계</div>
-        </div>
-
-        <p><strong>“난파선…?”</strong></p>
-        <p>해변 근처에서 발견한 난파선 속에는 놀랍게도 <strong>보물 지도</strong>가 들어있었다.</p>
-
-        <p>
-            우리는 삽을 들고 지도가 가리키는 곳을 파헤쳤고, 마침내 <span class="highlight">바다의 심장</span>을 손에 넣었다.
-            이 아이템은 나중에 우리가 바닷속에서 산소 걱정 없이 자유롭게 활동할 수 있게 해줄 것이다.
-        </p>
-
-        <p>
-            비록 크리퍼에게 한 번 당하긴 했지만, 
-            앞으로 이 서버에서 펼쳐질 수많은 모험이 마치 저 푸른 바다처럼 깊고 무궁무진할 것임을 예고하는 듯했다.
-        </p>
-    </div>
+</div>
 
 </div>
 
 <footer>
-    &copy; 2026/03/17 - 네모난 세상의 기록자
+2026/03/17
 </footer>
+
+<script>
+
+const fades=document.querySelectorAll('.fade');
+
+window.addEventListener('scroll',()=>{
+fades.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+el.classList.add('show');
+}
+});
+});
+
+setTimeout(()=>{
+document.getElementById('boom').classList.add('shake');
+},2000);
+
+</script>
 
 </body>
 </html>
